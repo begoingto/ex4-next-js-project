@@ -1,15 +1,13 @@
-import { Inter } from 'next/font/google'
+import React from "react";
 import MyNav from "@/components/MyNav";
 import Container from "react-bootstrap/Container";
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+export default function Policy(){
     return (
         <>
             <MyNav/>
             <Container>
-                Home Page
+                <h1>Hello Policy page</h1>
             </Container>
         </>
     )
