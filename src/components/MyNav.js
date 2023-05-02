@@ -25,6 +25,9 @@ export default function MyNav(){
                         <Link href="/news" className="nav-link">
                             News
                         </Link>
+                        <Link href="/movies" className="nav-link">
+                            Movies
+                        </Link>
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">

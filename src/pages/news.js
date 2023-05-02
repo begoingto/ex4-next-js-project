@@ -13,7 +13,6 @@ import {Col, Row} from "react-bootstrap";
 
     return (
         <>
-            <MyNav />
             <Container>
                 <Row md={3} lg={4} className={"g-3"}>
                     {

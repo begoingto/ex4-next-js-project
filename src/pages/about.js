@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 export default function AboutUs(){
     return (
         <>
-            <MyNav/>
             <Container>
                 <h1>Hello about page</h1>
             </Container>

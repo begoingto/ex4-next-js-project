@@ -1,0 +1,34 @@
+.my-rotate{
+    -webkit-animation:rotate 3s linear 0s infinite normal;
+    -moz-animation:rotate 3s linear 0s infinite normal;
+    -ms-animation:rotate 3s linear 0s infinite normal;
+    animation:rotate 1s linear 0s infinite normal;
+}
+
+@-webkit-keyframes rotate {
+    100%{ -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes rotate {
+    0%{
+        color: green;
+    }
+
+    50%{
+        color: red;
+    }
+
+    100%{
+        color: blue;
+        transform: rotate(360deg);
+    }
+}
+
+
+.login-form{
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+}
