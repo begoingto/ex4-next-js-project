@@ -3,17 +3,21 @@ import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import MovieCard from "@/components/MovieCard";
 import {API_KEY, BASE_URL, IMAGE_BASE_PATH} from "@/lib";
-import MySpinner from "@/components/MySpinner";
+import MyPlaceHolder from "@/components/MyPlaceholder";
 
 function Movies({movies}) {
+
+    let placeholder =[]
+    for (let i=0;i<20;i++){
+        placeholder.push(<Col> <MyPlaceHolder /> </Col>)
+    }
+
     return (
         <>
             <Container>
                 <Row md={3} lg={5} className={"g-3"}>
                     {movies.legend < 0 ?
-                        <div className="text-center">
-                            <MySpinner />
-                        </div>
+                        placeholder
                         :
                         movies.map((m,index) => (
                             <Col key={index}>
@@ -21,6 +25,7 @@ function Movies({movies}) {
                                     image={IMAGE_BASE_PATH + m.poster_path}
                                     title={m.original_title}
                                     overview={m.overview}
+                                    id={m.id}
                                 />
                             </Col>
                         ))}

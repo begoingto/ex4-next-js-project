@@ -1,8 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {No_Image} from "@/lib";
+import Link from "next/link";
 
-function MovieCard({image, title,overview}) {
+function MovieCard({image, title,overview, id}) {
     return (
         <Card className={"h-100"}>
             <div style={{height: '220px'}}>
@@ -15,7 +16,7 @@ function MovieCard({image, title,overview}) {
                 </Card.Text>
             </Card.Body>
             <Card.Footer>
-                <Button variant="primary" size={"sm"}>View Detail</Button>
+                <Link href={"/movies/"+ id} className="btn btn-primary btn-sm">View Detail</Link>
             </Card.Footer>
         </Card>
     );

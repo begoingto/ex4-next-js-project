@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function MyNav(){
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" className={"position-sticky top-0 start-0"} style={{zIndex: "1"}}>
             <Container>
                 <Navbar.Brand className="fw-bolder border-bottom border-3 border-danger"  >
                     <Link href="/" className="text-decoration-none">
@@ -28,18 +28,14 @@ export default function MyNav(){
                         <Link href="/movies" className="nav-link">
                             Movies
                         </Link>
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                Another action
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
-                                Separated link
-                            </NavDropdown.Item>
-                        </NavDropdown>
                     </Nav>
+                    <div className="d-flex">
+                        <Nav>
+                            <Link href="/auth/login" className="nav-link">
+                                <i className="bi bi-person-down"></i> Login
+                            </Link>
+                        </Nav>
+                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
