@@ -18,29 +18,27 @@ export default function Movie() {
 
     }, [])
 
-    const MoviePage = ({movieId}) => {
-        useEffect(() => {
-            fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`)
-                .then(res => res.json())
-                .then(data => {
-                    setMovie(data)
-                    setLoadMovie(true)
-                })
-            fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`)
-                .then(res => res.json())
-                .then(data => {
-                    setVideos(data)
-                    setLoadVideo(true)
-                })
-        }, [movieId]);
-    }
+    useEffect(() => {
+        fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                setMovie(data)
+                setLoadMovie(true)
+            })
+        fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                setVideos(data)
+                setLoadVideo(true)
+            })
+    }, [movieId]);
 
     let genres = []
 
     if (loadMovie) {
         for (let j = 0; j < movie.genres.length; j++) {
             genres.push(
-                <Badge pill bg="primary">
+                <Badge pill bg="primary" key={j}>
                     {movie.genres[j].name}
                 </Badge>
             )
@@ -62,8 +60,8 @@ export default function Movie() {
                             <div>
                                 {genres}
                             </div>
+                            <p>Overview</p>
                             <Card.Text>
-                                <p>Overview</p>
                                 {movie?.overview}
                             </Card.Text>
 
