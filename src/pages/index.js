@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <>
             <Container>
-                Home Page
+                <h1>Home page.</h1>
             </Container>
         </>
     )
