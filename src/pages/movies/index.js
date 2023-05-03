@@ -35,7 +35,7 @@ function Movies({movies}) {
     )
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     const res = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=1`)
     const movies = await res.json()
     return {

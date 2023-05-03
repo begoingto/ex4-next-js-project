@@ -1,34 +1,55 @@
-.my-rotate{
-    -webkit-animation:rotate 3s linear 0s infinite normal;
-    -moz-animation:rotate 3s linear 0s infinite normal;
-    -ms-animation:rotate 3s linear 0s infinite normal;
-    animation:rotate 1s linear 0s infinite normal;
+.my-rotate {
+    -webkit-animation: rotate 3s linear 0s infinite normal;
+    -moz-animation: rotate 3s linear 0s infinite normal;
+    -ms-animation: rotate 3s linear 0s infinite normal;
+    animation: rotate 1s linear 0s infinite normal;
 }
 
 @-webkit-keyframes rotate {
-    100%{ -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
+
 @keyframes rotate {
-    0%{
+    0% {
         color: green;
     }
 
-    50%{
+    50% {
         color: red;
     }
 
-    100%{
+    100% {
         color: blue;
         transform: rotate(360deg);
     }
 }
 
 
-.login-form{
+.login-form {
     max-width: 500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     height: 100vh;
     justify-content: center;
+}
+
+[role="cell"],
+[role="columnheader"] {
+    font-size: 15px;
+}
+
+[role="columnheader"] {
+    text-transform: uppercase;
+}
+
+.p-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    padding: 0 !important;
+    margin: 5px 0 !important;
 }

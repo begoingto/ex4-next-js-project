@@ -28,6 +28,9 @@ export default function MyNav(){
                         <Link href="/movies" className="nav-link">
                             Movies
                         </Link>
+                        <Link href="/products" className="nav-link">
+                            Product
+                        </Link>
                     </Nav>
                     <div className="d-flex">
                         <Nav>
