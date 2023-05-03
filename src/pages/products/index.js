@@ -30,6 +30,8 @@ const columns = [
                 src={row.images[0]}
                 alt="thumbnail"
                 className="img-thumbnail p-img"
+                width={70}
+                height={70}
             />)
     },
     {
@@ -55,7 +57,7 @@ function Products(){
         setSearch(e.target.value)
     }
     useEffect(() => {
-        fetch(`https://api.escuelajs.co/api/v1/products?limit=20&offset=1`)
+        fetch(`https://api.escuelajs.co/api/v1/products`)
             .then(res => res.json())
             .then(data => {
                 setProds(data)
