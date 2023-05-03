@@ -34,11 +34,11 @@ export default function login() {
     )
 }
 
-login.getLayout = function getLayout({children}){
+login.getLayout = function getLayout(page){
     return (
         <>
             <main className={"pt-4"}>
-                {children}
+                {page}
             </main>
         </>
     )

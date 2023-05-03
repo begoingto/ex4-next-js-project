@@ -1,6 +1,6 @@
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
-import {API_KEY, BASE_URL, IMAGE_BASE_PATH} from "@/lib";
+import {API_KEY, BASE_URL, IMAGE_BASE_PATH, No_Image} from "@/lib";
 import Container from "react-bootstrap/Container";
 import {Badge, Col, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
@@ -47,7 +47,7 @@ export default function Movie(){
         <Container>
             <Row>
                 <Col md={4} lg={3}>
-                    <Card.Img className="img-thumbnail" variant="top" src={IMAGE_BASE_PATH + movie?.backdrop_path} />
+                    <Card.Img className="img-thumbnail" variant="top" src={movie?.backdrop_path ? IMAGE_BASE_PATH + movie?.backdrop_path : No_Image} />
                 </Col>
                 <Col md={8} lg={9}>
                     <Card>
