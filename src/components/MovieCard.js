@@ -5,7 +5,7 @@ import Link from "next/link";
 
 function MovieCard({image, title,overview, id}) {
     return (
-        <Card className={"h-100"}>
+        <Card className={"h-100 bg-dark text-white border-danger"}>
             <div style={{height: '220px'}}>
                 <Card.Img variant="top" className="w-100 h-100" style={{objectFit:'contain'}} src={image ? image : No_Image} />
             </div>
@@ -16,7 +16,7 @@ function MovieCard({image, title,overview, id}) {
                 </Card.Text>
             </Card.Body>
             <Card.Footer>
-                <Link href={"/movies/"+ id} className="btn btn-primary btn-sm">View Detail</Link>
+                <Link href={"/movies/"+ id} className="btn btn-danger btn-sm">View Detail</Link>
             </Card.Footer>
         </Card>
     );

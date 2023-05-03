@@ -21,7 +21,7 @@ export default function MyPlaceHolder(){
                 </Placeholder>
             </Card.Body>
             <Card.Footer>
-                <Placeholder.Button className={"btn-sm"} variant="primary" xs={4} />
+                <Placeholder.Button className={"btn-sm"} variant="danger" xs={4} />
             </Card.Footer>
         </Card>
     )

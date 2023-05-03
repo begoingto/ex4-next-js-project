@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 export default function Policy(){
     return (
         <>
-            <Container>
+            <Container className="p-home">
                 <h1>Hello Policy page</h1>
             </Container>
         </>

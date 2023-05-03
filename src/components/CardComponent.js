@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 
 export default function CardComponent({title,description,image,url,handleClick}){
     return (
-        <Card className={"h-100"}>
+        <Card className={"h-100 bg-dark text-white shadow-sm"}>
             <div style={{height: '220px'}}>
                 <Card.Img variant="top" className="w-100 h-100" style={{objectFit:'cover'}} src={image ? image : "https://bit.ly/3NeUNDY"} />
             </div>
@@ -15,7 +15,7 @@ export default function CardComponent({title,description,image,url,handleClick})
                 </Card.Text>
             </Card.Body>
             <Card.Footer>
-                <Button size={"sm"} onClick={handleClick} variant="primary">View Detail</Button>
+                <Button size={"sm"} onClick={handleClick} variant="danger">View Detail</Button>
             </Card.Footer>
         </Card>
     )

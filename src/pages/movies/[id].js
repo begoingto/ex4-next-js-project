@@ -47,10 +47,10 @@ export default function Movie(){
         <Container>
             <Row>
                 <Col md={4} lg={3}>
-                    <Card.Img className="img-thumbnail" variant="top" src={movie?.backdrop_path ? IMAGE_BASE_PATH + movie?.backdrop_path : No_Image} />
+                    <Card.Img className="img-thumbnail  bg-dark border-danger" variant="top" src={movie?.backdrop_path ? IMAGE_BASE_PATH + movie?.backdrop_path : No_Image} />
                 </Col>
                 <Col md={8} lg={9}>
-                    <Card>
+                    <Card className="bg-dark text-white">
                         <Card.Body>
                             <Card.Title>{movie?.title}</Card.Title>
                             <div>

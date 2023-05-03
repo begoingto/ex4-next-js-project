@@ -10,7 +10,7 @@ function WatchTrailer({embedKey}) {
 
     return (
         <>
-            <Button variant="primary" size="sm" onClick={handleShow}><i className="bi bi-eye"></i> Watch Trailer</Button>
+            <Button variant="danger" size="sm" onClick={handleShow}><i className="bi bi-eye"></i> Watch Trailer</Button>
 
             <Modal size="lg" show={show} onHide={handleClose}>
                 <Modal.Body className="p-0">

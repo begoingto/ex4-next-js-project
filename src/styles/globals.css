@@ -1,16 +1,8 @@
 .my-rotate {
-    -webkit-animation: rotate 3s linear 0s infinite normal;
-    -moz-animation: rotate 3s linear 0s infinite normal;
-    -ms-animation: rotate 3s linear 0s infinite normal;
     animation: rotate 1s linear 0s infinite normal;
 }
 
-@-webkit-keyframes rotate {
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
+
 
 @keyframes rotate {
     0% {
@@ -40,10 +32,54 @@
 [role="cell"],
 [role="columnheader"] {
     font-size: 15px;
+    background-color: #212529;
+    color: white !important;
+}
+
+div[data-column-id],
+[role="table"] > div{
+    background-color: #212529;
+    color: white !important;
+}
+
+.p-product .card-body > div:last-child nav{
+    background-color: #212529;
+    color: white !important;
+}
+
+.p-product .card-body > div:last-child nav svg {
+    fill: white !important;
+}
+
+.p-product .card-body > div:last-child nav button[disabled] svg{
+    fill: rgba(255, 255, 255,.4) !important;
 }
 
 [role="columnheader"] {
     text-transform: uppercase;
+}
+
+[role="row"] {
+    border-bottom-color: #dc3545 !important;
+}
+.form-control{
+    border-color: #dc3545 !important;
+}
+
+.nav-link{
+    color: #dc3545 !important;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    text-transform: uppercase;
+}
+
+.p-home{
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .p-img {

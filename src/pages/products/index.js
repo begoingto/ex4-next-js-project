@@ -32,8 +32,8 @@ const columns = [
         maxWidth: '200px',
     	cell: row => (
             <div className="d-flex gap-2">
-                <Button size="sm" type="button" variant="primary">Edit</Button>
-                <Button size="sm" type="button" variant="danger">Delete</Button>
+                <Button size="sm" type="button" variant="primary"><i className="bi bi-pencil-square"></i> Edit</Button>
+                <Button size="sm" type="button" variant="danger"><i className="bi bi-trash2"></i> Delete</Button>
             </div>
         ),
     },
@@ -59,13 +59,13 @@ function Products({prods}){
 
     return (
         <>
-            <Container>
+            <Container className="p-product">
                 <h1>Products List</h1>
-                <Card>
+                <Card className="bg-dark text-white border-danger">
                     <Card.Header className="d-flex justify-content-end">
-                        <Form.Control onChange={handleSearch} name={search} style={{width: "350px"}} placeholder="Search product name" />
+                        <Form.Control onChange={handleSearch} className="bg-dark text-white" name={search} style={{width: "350px"}} placeholder="Search product name" />
                     </Card.Header>
-                    <Card.Body>
+                    <Card.Body className="p-0 overflow-hidden">
                         <DataTable
                             columns={columns}
                             data={products}

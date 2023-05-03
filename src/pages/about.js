@@ -12,8 +12,8 @@ export default function AboutUs(){
     let cols = []
     for (let i=0;i<5;i++){
         cols.push(
-            <Col>
-                <Card>
+            <Col key={i}>
+                <Card className="bg-dark text-white border-danger">
                     <Card.Img variant="top" src="https://bit.ly/3VnHhzC" />
                     <Card.Body>
                         <Card.Title>Card Title</Card.Title>
@@ -21,7 +21,7 @@ export default function AboutUs(){
                             Some quick example text to build on the card title and make up the
                             bulk of the cards content.
                         </Card.Text>
-                        <Link href="https://reactjs.org" target="_blank">Read docs</Link>
+                        <Link href="https://reactjs.org" target="_blank" className="text-danger">Read docs</Link>
                     </Card.Body>
                 </Card>
             </Col>
