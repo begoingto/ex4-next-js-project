@@ -2,7 +2,7 @@ import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import {API_KEY, BASE_URL, IMAGE_BASE_PATH} from "@/lib";
 import Container from "react-bootstrap/Container";
-import {Col, Row} from "react-bootstrap";
+import {Badge, Col, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import WatchTrailer from "@/components/WatchTrailer";
@@ -13,11 +13,15 @@ export default function Movie(){
     const [movie,setMovie] = useState()
     const [videos,setVideos] = useState()
     const [loadVideo, setLoadVideo] = useState(false)
+    const [loadMovie, setLoadMovie] = useState(false)
 
     useEffect(()=>{
         fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`)
             .then(res => res.json())
-            .then(data => setMovie(data))
+            .then(data => {
+                setMovie(data)
+                setLoadMovie(true)
+            })
         fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`)
             .then(res => res.json())
             .then(data => {
@@ -26,7 +30,18 @@ export default function Movie(){
             })
     },[])
 
-    console.log(videos)
+    let genres = []
+
+    if (loadMovie){
+        for (let j=0;j<movie.genres.length;j++){
+            genres.push(
+                <Badge pill bg="primary">
+                    {movie.genres[j].name}
+                </Badge>
+            )
+        }
+    }
+
 
     return (
         <Container>
@@ -38,13 +53,16 @@ export default function Movie(){
                     <Card>
                         <Card.Body>
                             <Card.Title>{movie?.title}</Card.Title>
+                            <div>
+                                {genres}
+                            </div>
                             <Card.Text>
                                 <p>Overview</p>
                                 {movie?.overview}
                             </Card.Text>
 
                             <WatchTrailer
-                                embedKey={loadVideo ? videos.results[videos.results.length-1] : "J1PlHGTa2_o"}
+                                embedKey={loadVideo ? videos.results[videos.results.length-1].key : "J1PlHGTa2_o"}
                             />
                         </Card.Body>
                     </Card>
