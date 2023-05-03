@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
 import {useEffect, useState} from "react";
+import Image from "next/image";
 
 
 const columns = [
@@ -24,7 +25,12 @@ const columns = [
     {
         name: 'Photo',
         selector: row => row.images,
-        cell: row => (<img src={row.images[0]} className="img-thumbnail p-img" alt="thumbnail" />)
+        cell: row => (
+            <Image
+                src={row.images[0]}
+                alt="thumbnail"
+                className="img-thumbnail p-img"
+            />)
     },
     {
         name: 'Action',
@@ -39,23 +45,32 @@ const columns = [
     },
 ];
 
-function Products({prods}){
+function Products(){
 
-    const [products,setProducts] = useState(prods)
+    const [products,setProducts] = useState([])
+    const [prods,setProds] = useState([])
     const [search,setSearch] = useState("")
-
     const handleSearch = (e) => {
         e.preventDefault()
         setSearch(e.target.value)
     }
     useEffect(() => {
+        fetch(`https://api.escuelajs.co/api/v1/products?limit=20&offset=1`)
+            .then(res => res.json())
+            .then(data => {
+                setProds(data)
+                setProducts(data)
+            })
+    },[])
+
+    useEffect(() => {
         if (search.length > 2){
-            setProducts(prods.filter(p => p.title.toLowerCase().includes(search.toLowerCase())))
+            const pFilter = products.filter(p => p.title.toLowerCase().includes(search.toLowerCase()))
+            setProducts(pFilter)
         }else {
             setProducts(prods)
         }
-    },[search])
-    console.log(products)
+    },[prods, products, search])
 
     return (
         <>
@@ -78,14 +93,14 @@ function Products({prods}){
     )
 }
 
-export async function getServerSideProps(context) {
-    const res = await fetch(`https://api.escuelajs.co/api/v1/products?limit=20&offset=1`)
-    const products = await res.json()
-    return {
-        props: {
-            prods: products
-        }
-    }
-}
+// export async function getServerSideProps(context) {
+//     const res = await fetch(`https://api.escuelajs.co/api/v1/products?limit=20&offset=1`)
+//     const products = await res.json()
+//     return {
+//         props: {
+//             prods: products
+//         }
+//     }
+// }
 
 export default Products
