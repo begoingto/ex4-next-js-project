@@ -83,8 +83,8 @@ div[data-column-id],
 }
 
 .p-img {
-    width: 70px;
-    height: 70px;
+    width: 70px !important;
+    height: 70px !important;
     object-fit: contain;
     padding: 0 !important;
     margin: 5px 0 !important;

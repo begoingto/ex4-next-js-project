@@ -1,4 +1,3 @@
-import MyNav from "@/components/MyNav";
 import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import MovieCard from "@/components/MovieCard";

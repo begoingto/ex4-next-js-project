@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
 import {useEffect, useState} from "react";
 import Image from "next/image";
+import TableLoading from "@/components/TableLoading";
 
 
 const columns = [
@@ -52,6 +53,7 @@ function Products(){
     const [products,setProducts] = useState([])
     const [prods,setProds] = useState([])
     const [search,setSearch] = useState("")
+    const [loading,setLoading] = useState(true)
     const handleSearch = (e) => {
         e.preventDefault()
         setSearch(e.target.value)
@@ -62,6 +64,7 @@ function Products(){
             .then(data => {
                 setProds(data)
                 setProducts(data)
+                setLoading(false)
             })
     },[])
 
@@ -83,26 +86,18 @@ function Products(){
                         <Form.Control onChange={handleSearch} className="bg-dark text-white" name={search} style={{width: "350px"}} placeholder="Search product name" />
                     </Card.Header>
                     <Card.Body className="p-0 overflow-hidden">
-                        <DataTable
-                            columns={columns}
-                            data={products}
-                            pagination
-                        />
+                        {loading ? <TableLoading /> :
+                            <DataTable
+                                columns={columns}
+                                data={products}
+                                pagination
+                            />
+                        }
                     </Card.Body>
                 </Card>
             </Container>
         </>
     )
 }
-
-// export async function getServerSideProps(context) {
-//     const res = await fetch(`https://api.escuelajs.co/api/v1/products?limit=20&offset=1`)
-//     const products = await res.json()
-//     return {
-//         props: {
-//             prods: products
-//         }
-//     }
-// }
 
 export default Products

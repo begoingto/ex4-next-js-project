@@ -7,7 +7,7 @@ export default function MyPlaceHolder(){
         height: "200px"
     }
     return (
-        <Card className={"h-100"}>
+        <Card className={"h-100 text-white bg-dark"}>
             <Placeholder style={imgStyle} />
             <Card.Body>
                 <Placeholder as={Card.Title} animation="glow">
